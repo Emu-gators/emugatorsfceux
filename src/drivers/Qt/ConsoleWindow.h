@@ -56,6 +56,7 @@ class  emulatorThread_t : public QThread
 		#endif
 		void signalFrameFinished(void);
 		void signalRomLoad(const char *rom);
+		void signalRomClose();
 	private:
 		void init(void);
 
@@ -68,6 +69,7 @@ class  emulatorThread_t : public QThread
 		void finished(void);
 		void frameFinished(void);
 		void loadRomRequest( QString s );
+		void closeRomRequest();
 };
 
 class  consoleMenuBar : public QMenuBar
@@ -327,15 +329,16 @@ class  consoleWin_t : public QMainWindow
 		void toggleMenuVis(void);
 		void recordMovie(void);
 		void winResizeIx(int iScale);
-	private slots:
+		void loadRomRequestCB( QString s );
+		void closeROMCB(void);
 		void closeApp(void);
+	private slots:
 		void openROMFile(void);
 		void loadNSF(void);
 		void loadStateFrom(void);
 		void saveStateAs(void);
 		void quickLoad(void);
 		void quickSave(void);
-		void closeROMCB(void);
 		void aboutFCEUX(void);
 		void aboutQt(void);
 		void openOnlineDocs(void);
@@ -466,7 +469,6 @@ class  consoleWin_t : public QMainWindow
 		void toggleMenuAutoHide(bool);
 		void toggleUseBgPaletteForVideo(bool);
 		void videoBgColorChanged( QColor &c );
-		void loadRomRequestCB( QString s );
 		void videoDriverDestroyed( QObject *obj );
 
 };
