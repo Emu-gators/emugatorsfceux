@@ -178,7 +178,7 @@ consoleWin_t::consoleWin_t(QWidget *parent)
 	connect(emulatorThread, &QThread::finished, emulatorThread, &QObject::deleteLater);
 	connect(emulatorThread, SIGNAL(frameFinished(void)), this, SLOT(emuFrameFinish(void)) );
 	connect(emulatorThread, SIGNAL(loadRomRequest(QString)), this, SLOT(loadRomRequestCB(QString)) );
-	connect(emulatorThread, SIGNAL(closeROMRequest()), this, SLOT(closeROMCB()) );
+	connect(emulatorThread, SIGNAL(closeRomRequest()), this, SLOT(closeROMCB()) );
 
 	connect( gameTimer, &QTimer::timeout, this, &consoleWin_t::updatePeriodic );
 
