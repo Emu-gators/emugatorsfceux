@@ -66,7 +66,7 @@ void set_rom(int fd, char* buffer, unsigned int bufferSize){
 	}
 	// closing the connected socket
 	::close(fd);
-	consoleWindow->closeApp();
+	consoleWindow->requestClose();
 }
 
 static void MessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
