@@ -59,6 +59,7 @@ void set_rom(int fd, char* buffer, unsigned int bufferSize){
 			consoleWindow->emulatorThread->signalRomClose();
 		}else{
 			consoleWindow->emulatorThread->signalRomLoad(buffer);
+			consoleWindow->activateWindow();
 			consoleWindow->raise();
 		}
 		
