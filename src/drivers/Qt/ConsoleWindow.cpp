@@ -248,8 +248,9 @@ consoleWin_t::consoleWin_t(QWidget *parent)
 		//this->resize( reqSize );
 	}
 
-	g_config->getOption( "SDL.Fullscreen", &setFullScreen );
-	g_config->setOption( "SDL.Fullscreen", 0 ); // Reset full screen config parameter to false so it is never saved this way
+	//g_config->getOption( "SDL.Fullscreen", &setFullScreen );
+	g_config->setOption( "SDL.Fullscreen", 1 ); // Reset full screen config parameter to false so it is always saved this way
+	g_config->setOption( "SDL.AutoHideMenuFullsreen", 1 ); // Reset hide menu config parameter to false so it is always saved this way
 
 	if ( setFullScreen )
 	{
